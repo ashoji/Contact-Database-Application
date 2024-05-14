@@ -4,27 +4,17 @@ using System.Web.Mvc;
 
 namespace CRUD_application_2.Controllers
 {
-    /// <summary>
-    /// ユーザー関連のアクションのコントローラー。
-    /// </summary>
     public class UserController : Controller
     {
-        /// <summary>
-        /// ユーザーの静的リスト。
-        /// </summary>
         public static System.Collections.Generic.List<User> userlist = new System.Collections.Generic.List<User>();
 
-        /// <summary>
-        /// ユーザーのインデックスページのビューを返します。
-        /// </summary>
+        // GET: User
         public ActionResult Index()
         {
             return View(userlist);
         }
 
-        /// <summary>
-        /// 特定のユーザーの詳細ページのビューを返します。
-        /// </summary>
+        // GET: User/Details/5
         public ActionResult Details(int id)
         {
             var user = userlist.FirstOrDefault(u => u.Id == id);
@@ -35,17 +25,13 @@ namespace CRUD_application_2.Controllers
             return View(user);
         }
 
-        /// <summary>
-        /// ユーザー作成ページのビューを返します。
-        /// </summary>
+        // GET: User/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        /// <summary>
-        /// 新しいユーザーをリストに追加し、インデックスページにリダイレクトします。
-        /// </summary>
+        // POST: User/Create
         [HttpPost]
         public ActionResult Create(User user)
         {
@@ -57,9 +43,7 @@ namespace CRUD_application_2.Controllers
             return View(user);
         }
 
-        /// <summary>
-        /// 特定のユーザーの編集ページのビューを返します。
-        /// </summary>
+        // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
             var user = userlist.FirstOrDefault(u => u.Id == id);
@@ -70,9 +54,7 @@ namespace CRUD_application_2.Controllers
             return View(user);
         }
 
-        /// <summary>
-        /// ユーザーの詳細を更新し、インデックスページにリダイレクトします。
-        /// </summary>
+        // POST: User/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, User user)
         {
@@ -85,15 +67,13 @@ namespace CRUD_application_2.Controllers
             {
                 existingUser.Name = user.Name;
                 existingUser.Email = user.Email;
-                // 必要に応じて更新する他のフィールドを追加します
+                // Add other fields to update as necessary
                 return RedirectToAction("Index");
             }
             return View(user);
         }
 
-        /// <summary>
-        /// 特定のユーザーの削除ページのビューを返します。
-        /// </summary>
+        // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
             var user = userlist.FirstOrDefault(u => u.Id == id);
@@ -104,9 +84,7 @@ namespace CRUD_application_2.Controllers
             return View(user);
         }
 
-        /// <summary>
-        /// ユーザーをリストから削除し、インデックスページにリダイレクトします。
-        /// </summary>
+        // POST: User/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

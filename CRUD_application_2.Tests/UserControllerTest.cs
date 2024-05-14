@@ -8,11 +8,20 @@ namespace CRUD_application_2.Tests.Controllers
     [TestClass]
     public class UserControllerTest
     {
+
+        private UserController controller;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            controller = new UserController();
+//            controller.AddUser(new User { Id = 1, Name = "Test", Email = "test@test.com" });
+        }
+
+
         [TestMethod]
         public void Index()
         {
-            // Arrange
-            UserController controller = new UserController();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -24,11 +33,9 @@ namespace CRUD_application_2.Tests.Controllers
         [TestMethod]
         public void Details()
         {
-            // Arrange
-            UserController controller = new UserController();
 
-            UserController.userlist.Add(new User { Id = 1, Name = "Test", Email = "test@test.com" });
-
+            // fix
+            controller.Create(new User { Id = 1, Name = "Test", Email = "test@test.com" });
             // Act
             ViewResult result = controller.Details(1) as ViewResult;
 
@@ -39,8 +46,6 @@ namespace CRUD_application_2.Tests.Controllers
         [TestMethod]
         public void Create()
         {
-            // Arrange
-            UserController controller = new UserController();
 
             // Act
             ViewResult result = controller.Create() as ViewResult;
@@ -53,8 +58,7 @@ namespace CRUD_application_2.Tests.Controllers
         public void Edit()
         {
             // Arrange
-            UserController controller = new UserController();
-            UserController.userlist.Add(new User { Id = 1, Name = "Test", Email = "test@test.com" });
+            controller.Create(new User { Id = 1, Name = "Test", Email = "test@test.com" });
 
             // Act
             ViewResult result = controller.Edit(1) as ViewResult;
@@ -67,8 +71,7 @@ namespace CRUD_application_2.Tests.Controllers
         public void Delete()
         {
             // Arrange
-            UserController controller = new UserController();
-            UserController.userlist.Add(new User { Id = 1, Name = "Test", Email = "test@test.com" });
+            controller.Create(new User { Id = 1, Name = "Test", Email = "test@test.com" });
 
             // Act
             ViewResult result = controller.Delete(1) as ViewResult;
