@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "webAppName": {
+            "value": "githubcopilotchallengeswebaas20240514" // TODO: Fill in parameter value
+        },
+        "hostingPlanName": {
+            "value": "githubcopilotchallengeasp" // TODO: Fill in parameter value
+        },
+        "skuName": {
+            "value": "F1" // TODO: Fill in parameter value
+        },
+        "skuTier": {
+            "value": "Free" // TODO: Fill in parameter value
+        }
+    }
+}
