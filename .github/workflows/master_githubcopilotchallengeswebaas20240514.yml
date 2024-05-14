@@ -26,8 +26,7 @@ jobs:
         run: nuget restore
 
       - name: Publish to folder
-        run: msbuild /p:Configuration=Release /p:Platform="Any CPU" /t:Build /p:ExcludeProjects="**\*Tests.csproj"
-
+        run: msbuild /p:Configuration=Release /p:Platform="Any CPU" /t:Build /p:ExcludeProjects="**\*Tests.csproj" /p:OutDir=/published/
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
