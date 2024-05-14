@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "webAppName": {
-            "value": "githubcopilotchallengeswebaas20240514" // TODO: Fill in parameter value
+            "value": "githubcopilotchallengeswebaas20240514"
         },
         "hostingPlanName": {
-            "value": "githubcopilotchallengeasp" // TODO: Fill in parameter value
+            "value": "githubcopilotchallengeasp"
         },
         "skuName": {
-            "value": "F1" // TODO: Fill in parameter value
+            "value": "F1"
         },
         "skuTier": {
-            "value": "Free" // TODO: Fill in parameter value
+            "value": "Free"
         }
     }
 }
