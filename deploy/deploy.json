@@ -59,7 +59,7 @@
             "properties": {
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
                 "siteConfig": {
-                    "netFrameworkVersion": "v4.7"
+                    "netFrameworkVersion": "v4.0"
                 }
             }
         }
